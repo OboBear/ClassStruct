@@ -6,6 +6,7 @@ import com.obo.struct.ClassFile;
 import com.obo.struct.ConstantPool;
 
 import java.io.*;
+import java.util.function.DoubleToLongFunction;
 
 /**
  * Created by obo on 2017/5/4.
@@ -33,7 +34,15 @@ public class ClassStructure {
 
         // Read content pool
         int contentPoolCount = U2.read(inputStream);
-        ConstantPool constantPool = new ConstantPool(contentPoolCount);
-        constantPool.read(inputStream);
+        classFile.constantPool = new ConstantPool(contentPoolCount);
+        classFile.constantPool.read(inputStream);
+        //  Access flag
+        classFile.accessFlag = U2.read(inputStream);
+        classFile.thisClass = U2.read(inputStream);
+        classFile.superClass = U2.read(inputStream);
+        classFile.interfaceCount = U2.read(inputStream);
+        
+        System.out.println("");
+
     }
 }
