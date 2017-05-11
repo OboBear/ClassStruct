@@ -12,6 +12,7 @@ import java.io.InputStream;
  */
 public class ConstantDouble extends ConstantInfo {
     public double value;
+    public ConstantDouble(){super();}
     public ConstantDouble(short tag) {
         super(tag);
     }

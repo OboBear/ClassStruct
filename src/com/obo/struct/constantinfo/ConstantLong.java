@@ -12,6 +12,8 @@ import java.io.InputStream;
  */
 public class ConstantLong extends ConstantInfo {
     public long value;
+
+    public ConstantLong(){super();}
     public ConstantLong(short tag) {
         super(tag);
     }

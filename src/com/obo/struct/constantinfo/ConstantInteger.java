@@ -13,6 +13,7 @@ import java.io.InputStream;
  */
 public class ConstantInteger extends ConstantInfo {
     public int value;
+    public ConstantInteger(){super();}
     public ConstantInteger(short tag) {
         super(tag);
     }

@@ -1,7 +1,9 @@
 package com.obo.struct;
 
 import com.obo.read.U1;
+import com.obo.read.U2;
 import com.obo.struct.constantinfo.ConstantInfo;
+import com.obo.struct.constantinfo.ConstantInfoProducer;
 
 import java.io.InputStream;
 
@@ -22,7 +24,7 @@ public class ConstantPool {
     public void read(InputStream inputStream) {
         for (int i = 1; i < contantPoolSize; i++) {
             short tag = U1.read(inputStream);
-            constantInfos[i] = new ConstantInfo(tag);
+            constantInfos[i] = ConstantInfoProducer.produce(tag);
             constantInfos[i].read(inputStream);
             if (tag == ConstantInfo.CONSTANT_Double || tag == ConstantInfo.CONSTANT_Long) {
                 i++;

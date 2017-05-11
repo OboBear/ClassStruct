@@ -28,7 +28,12 @@ public abstract class ConstantInfo {
     public short tag;
     public short []info;
 
+    public ConstantInfo(){}
     public ConstantInfo(short tag) {
+        this.tag = tag;
+    }
+
+    public void setTag(short tag) {
         this.tag = tag;
     }
 

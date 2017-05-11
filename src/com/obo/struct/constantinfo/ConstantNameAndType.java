@@ -1,5 +1,7 @@
 package com.obo.struct.constantinfo;
 
+import com.obo.read.U2;
+
 import java.io.InputStream;
 
 /**
@@ -9,12 +11,16 @@ import java.io.InputStream;
  * Blog:http://blog.csdn.net/leilba
  */
 public class ConstantNameAndType extends ConstantInfo {
+    int nameIndex;
+    int typeIndex;
+    public ConstantNameAndType(){super();}
     public ConstantNameAndType(short tag) {
         super(tag);
     }
 
     @Override
     public void read(InputStream inputStream) {
-
+        nameIndex = U2.read(inputStream);
+        typeIndex = U2.read(inputStream);
     }
 }

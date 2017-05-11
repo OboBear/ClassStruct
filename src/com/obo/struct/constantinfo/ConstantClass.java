@@ -14,6 +14,7 @@ public class ConstantClass extends ConstantInfo {
 
     public int nameIndex;
 
+    public ConstantClass(){super();}
     public ConstantClass(short tag) {
         super(tag);
     }

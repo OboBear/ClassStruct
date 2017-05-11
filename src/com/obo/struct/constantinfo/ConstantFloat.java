@@ -13,6 +13,7 @@ import java.io.InputStream;
 public class ConstantFloat extends ConstantInfo {
 
     public float value;
+    public ConstantFloat(){super();}
     public ConstantFloat(short tag) {
         super(tag);
     }

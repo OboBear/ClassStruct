@@ -16,6 +16,7 @@ public class ConstantUtf8 extends ConstantInfo {
     public int length;
     public String value;
 
+    public ConstantUtf8(){super();}
     public ConstantUtf8(short tag) {
         super(tag);
     }

@@ -12,6 +12,7 @@ import java.io.InputStream;
  */
 public class ConstantString extends ConstantInfo {
     public int nameIndex;
+    public ConstantString(){super();}
     public ConstantString(short tag) {
         super(tag);
     }

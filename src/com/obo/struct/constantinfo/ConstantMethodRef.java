@@ -1,5 +1,7 @@
 package com.obo.struct.constantinfo;
 
+import com.obo.read.U2;
+
 import java.io.InputStream;
 
 /**
@@ -9,12 +11,18 @@ import java.io.InputStream;
  * Blog:http://blog.csdn.net/leilba
  */
 public class ConstantMethodRef extends ConstantInfo {
+
+    int classIndex;
+    int nameAndTypeIndex;
+
+    public ConstantMethodRef(){super();}
     public ConstantMethodRef(short tag) {
         super(tag);
     }
 
     @Override
     public void read(InputStream inputStream) {
-
+        classIndex = U2.read(inputStream);
+        nameAndTypeIndex = U2.read(inputStream);
     }
 }
