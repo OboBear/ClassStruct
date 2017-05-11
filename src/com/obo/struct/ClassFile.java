@@ -1,5 +1,7 @@
 package com.obo.struct;
 
+import com.obo.struct.fieldinfo.FieldInfo;
+
 /**
  * Created by obo on 2017/5/7.
  * Email:obo1993@gmail.com
@@ -15,9 +17,9 @@ public class ClassFile {
     public int thisClass;
     public int superClass;
     public int interfaceCount;
-    public String[] interfaces;
+    public int[] interfaces;
     public int fieldCount;
-//    public MemberInfo[] fields;
-    public int methodCount;
+    public FieldInfo[] fields;
+    public int methodCount;  // U2
 //    public MemberInfo[] methods;
 }
