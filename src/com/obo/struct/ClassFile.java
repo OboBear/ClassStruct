@@ -1,6 +1,7 @@
 package com.obo.struct;
 
 import com.obo.struct.fieldinfo.FieldInfo;
+import com.obo.struct.methodInfo.MethodInfo;
 
 /**
  * Created by obo on 2017/5/7.
@@ -21,5 +22,5 @@ public class ClassFile {
     public int fieldCount;
     public FieldInfo[] fields;
     public int methodCount;  // U2
-//    public MemberInfo[] methods;
+    public MethodInfo[] methods;
 }

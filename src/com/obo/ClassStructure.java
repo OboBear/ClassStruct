@@ -5,6 +5,7 @@ import com.obo.read.U4;
 import com.obo.struct.ClassFile;
 import com.obo.struct.ConstantPool;
 import com.obo.struct.fieldinfo.FieldInfo;
+import com.obo.struct.methodInfo.MethodInfo;
 
 import java.io.*;
 import java.util.function.DoubleToLongFunction;
@@ -62,7 +63,10 @@ public class ClassStructure {
         }
 
         classFile.methodCount = U2.read(inputStream);
+        classFile.methods = new MethodInfo[classFile.methodCount];
+        for (int i = 0; i < classFile.methodCount; i++) {
 
+        }
 
         System.out.println("");
 
