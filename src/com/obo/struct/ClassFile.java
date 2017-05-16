@@ -1,5 +1,6 @@
 package com.obo.struct;
 
+import com.obo.struct.attribute.Attribute;
 import com.obo.struct.fieldinfo.FieldInfo;
 import com.obo.struct.methodInfo.MethodInfo;
 
@@ -23,4 +24,6 @@ public class ClassFile {
     public FieldInfo[] fields;
     public int methodCount;  // U2
     public MethodInfo[] methods;
+    public int attributeCount; //U2
+    public Attribute []attribute;
 }

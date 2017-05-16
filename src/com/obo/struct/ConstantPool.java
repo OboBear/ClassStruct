@@ -4,6 +4,7 @@ import com.obo.read.U1;
 import com.obo.read.U2;
 import com.obo.struct.constantinfo.ConstantInfo;
 import com.obo.struct.constantinfo.ConstantInfoProducer;
+import com.sun.tools.classfile.Code_attribute;
 
 import java.io.InputStream;
 
@@ -30,5 +31,12 @@ public class ConstantPool {
                 i++;
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer toString = new StringBuffer();
+//        toString.append();
+        return super.toString();
     }
 }

@@ -27,6 +27,25 @@ public class U4 {
 
     public static int readInt(InputStream inputStream) {
         byte[] bytes = new byte[4];
-        return Integer.parseInt(new String(bytes));
+        try {
+            inputStream.read(bytes);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bytesToInt(bytes,0);
+    }
+
+    public static int bytesToInt(byte[] des, int offset) {
+        int value;
+//        value = (int) (des[offset] & 0xff
+//                | ((des[offset + 1] & 0xff) << 8)
+//                | ((des[offset + 2] & 0xff) << 16)
+//                | (des[offset + 3] & 0xff) << 24);
+
+        value = (int) (des[offset] << 24
+                | ((des[offset + 1] ) << 16)
+                | ((des[offset + 2] ) << 8)
+                | (des[offset + 3] ) );
+        return value;
     }
 }
