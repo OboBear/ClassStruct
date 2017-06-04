@@ -17,7 +17,13 @@ public class U8 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return Long.parseLong(new String(bytes));
+//        String longString = new String(bytes);
+        long longValue = 0;
+        for (int i = 0; i < bytes.length; i++) {
+            longValue = longValue<<8;
+            longValue += Byte.toUnsignedInt(bytes[i]);
+        }
+        return longValue;
     }
 
     public static double readDouble(InputStream inputStream) {

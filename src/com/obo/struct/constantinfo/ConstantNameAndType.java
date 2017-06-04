@@ -23,4 +23,9 @@ public class ConstantNameAndType extends ConstantInfo {
         nameIndex = U2.read(inputStream);
         typeIndex = U2.read(inputStream);
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

@@ -7,6 +7,7 @@ import com.obo.struct.ConstantPool;
 import com.obo.struct.attribute.Attribute;
 import com.obo.struct.fieldinfo.FieldInfo;
 import com.obo.struct.methodInfo.MethodInfo;
+import com.sun.tools.classfile.StackMapTable_attribute;
 
 import java.io.*;
 import java.util.function.DoubleToLongFunction;
@@ -25,23 +26,30 @@ public class ClassStructure {
         ClassFile classFile = new ClassFile();
         // magic number
         classFile.magic = U4.read(inputStream);
-        System.out.println("magic number:" + Long.toHexString(classFile.magic));
+        println("magic number:" + Long.toHexString(classFile.magic));
         // minor version
         classFile.minorVersion = U2.read(inputStream);
-        System.out.println("minor version:" + Integer.toHexString(classFile.minorVersion));
+        println("minor version:" + Integer.toHexString(classFile.minorVersion));
         // major version
         classFile.majorVersion = U2.read(inputStream);
-        System.out.println("major version:" + Integer.toHexString(classFile.majorVersion));
+        println("major version:" + Integer.toHexString(classFile.majorVersion));
         // Read content pool
         int contentPoolCount = U2.read(inputStream);
         classFile.constantPool = new ConstantPool(contentPoolCount);
         classFile.constantPool.read(inputStream);
+        println("constantSize = " + contentPoolCount);
+
         // Access flag
         classFile.accessFlag = U2.read(inputStream);
+        println("accessFlag = " + classFile.accessFlag);
+
         // This class
         classFile.thisClass = U2.read(inputStream);
+        classFile.constantPool.println(classFile.thisClass);
+
         // Super class
         classFile.superClass = U2.read(inputStream);
+        classFile.constantPool.println(classFile.superClass);
         // interface count
         classFile.interfaceCount = U2.read(inputStream);
         classFile.interfaces = new int[classFile.interfaceCount];
@@ -60,11 +68,13 @@ public class ClassStructure {
 
         // method
         classFile.methodCount = U2.read(inputStream);
+        println("" + classFile.methodCount);
         classFile.methods = new MethodInfo[classFile.methodCount];
         for (int i = 0; i < classFile.methodCount; i++) {
             classFile.methods[i] = new MethodInfo();
             classFile.methods[i].read(inputStream);
         }
+
 
         classFile.attributeCount = U2.read(inputStream);
         classFile.attribute = new Attribute[classFile.attributeCount];
@@ -75,5 +85,10 @@ public class ClassStructure {
 
         System.out.println("");
 
+    }
+
+
+    private static void println(String printString) {
+        System.out.println(printString);
     }
 }

@@ -42,10 +42,11 @@ public class U4 {
 //                | ((des[offset + 2] & 0xff) << 16)
 //                | (des[offset + 3] & 0xff) << 24);
 
-        value = (int) (des[offset] << 24
-                | ((des[offset + 1] ) << 16)
-                | ((des[offset + 2] ) << 8)
-                | (des[offset + 3] ) );
-        return value;
+        int intValue = 0;
+        for (int i = 0; i < 4; i++) {
+            intValue = intValue << 8;
+            intValue += Byte.toUnsignedInt(des[i]);
+        }
+        return intValue;
     }
 }

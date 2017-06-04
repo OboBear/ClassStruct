@@ -39,4 +39,8 @@ public class ConstantPool {
 //        toString.append();
         return super.toString();
     }
+
+    public void println(int index) {
+        System.out.println(constantInfos[index]);
+    }
 }
